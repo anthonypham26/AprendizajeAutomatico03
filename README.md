@@ -1,4 +1,4 @@
-# AprendizajeAutomatico03
+# Aprendizaje Automatico 03
 
 ## Índice
 1. Técnicas avanzadas de datos
@@ -47,9 +47,9 @@ Mide la distancia entre un dato y la media en términos de desviaciones estánda
 - **Método IQR**
     El rango intercuartil se centra en el 50 % medio del conjunto de datos.
     - Define un rango "normal" y considera cualquier valor significativamente menor o mayor como un posible valor atípico.
-        - El RIQ se calcula como:
+    - El RIQ se calcula como:
         - \[ Q1 - 1,5 * RIQ, Q3 + 1,5 * RIQ \]
-    - Donde **Q1** es el percentil 25 y **Q3** es el percentil 75.
+        - Donde **Q1** es el percentil 25 y **Q3** es el percentil 75.
     - Los valores fuera de este rango se consideran valores atípicos.
 
 <kbd><img src="images/IQR.png" style="border:1px solid grey; border-radius:10px;"></kbd>
@@ -64,29 +64,35 @@ Existen dos métodos estadísticos comunes para completar valores faltantes: **I
 
 - **Imputación de Media/Mediana/Moda**
     Cuando un conjunto de datos contiene valores faltantes (NaN), una de las técnicas más sencillas es reemplazarlos con una medida de tendencia central de la misma columna:
-        - **Media**: adecuada para datos numéricos con distribución normal.
-        - **Media**: más robusta ante valores atípicos y distribuciones asimétricas.
-        - **Moda**: utilizada para variables categóricas o discretas.
+
+    - **Media**: adecuada para datos numéricos con distribución normal.
+
+    - **Media**: más robusta ante valores atípicos y distribuciones asimétricas.
+    
+    - **Moda**: utilizada para variables categóricas o discretas.
 
     Este método es rápido y fácil de implementar, pero no considera las relaciones entre las características.
 
+
 - **Imputador de K-Vecinos Más Cercanos (KNN)**
-La imputación KNN es un enfoque más avanzado y basado en datos.
+    La imputación KNN es un enfoque más avanzado y basado en datos.
 
-En lugar de usar un único valor estático, KNN utiliza los valores de los K vecinos (más similares) basándose en otras características.
+    En lugar de usar un único valor estático, KNN utiliza los valores de los K vecinos (más similares) basándose en otras características.
 
-**Cómo funciona:**
+    **Cómo funciona:**
 
-1. **Buscar filas similares:**
-Para la fila con el valor faltante, KNN identifica otras filas con valores similares en las columnas restantes.
-    - La similitud se mide utilizando una métrica de distancia: la distancia euclidiana.
-2. **Seleccionar K vecinos:**
-    - Elija las *K* filas más cercanas (vecinas).
-3. **Complete el valor faltante:**
-    - Si el valor faltante es **numérico**, tome el **promedio** de los valores de los vecinos.
-    - Si el valor faltante es **categórico**, tome la categoría **más frecuente** entre los vecinos.
+    1. **Buscar filas similares:**
+    Para la fila con el valor faltante, KNN identifica otras filas con valores similares en las columnas restantes.
+        - La similitud se mide utilizando una métrica de distancia: la distancia euclidiana.
+    2. **Seleccionar K vecinos:**
+        - Elija las *K* filas más cercanas (vecinas).
+    3. **Complete el valor faltante:**
+        - Si el valor faltante es **numérico**, tome el **promedio** de los valores de los vecinos.
+        - Si el valor faltante es **categórico**, tome la categoría **más frecuente** entre los vecinos.
 
 <kbd><img src="images/knn.gif" style="border:1px solid grey; border-radius:10px;"></kbd>
+
+---
 
 La imputación KNN tiene en cuenta las relaciones entre diferentes características, lo que la hace más precisa pero también más costosa computacionalmente.
 
